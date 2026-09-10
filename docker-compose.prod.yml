@@ -1,0 +1,30 @@
+# Prod overrides:  docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+# No reverse proxy / TLS here by design — terminate TLS in front of this stack.
+services:
+  api:
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+    volumes: []
+    restart: unless-stopped
+    environment:
+      ENV: prod
+      COOKIE_SECURE: "true"
+
+  worker:
+    volumes: []
+    restart: unless-stopped
+    environment:
+      ENV: prod
+
+  web:
+    build:
+      context: ./frontend
+      target: prod
+    command: ["nginx", "-g", "daemon off;"]
+    volumes: []
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+
+  db:
+    ports: []
+    restart: unless-stopped

@@ -1,0 +1,96 @@
+{
+  "app": { "name": "اپ دوستی" },
+  "nav": { "home": "خانه", "friends": "دوستان", "wishlist": "ویش‌لیست", "notifications": "اعلان‌ها", "settings": "تنظیمات", "logout": "خروج" },
+  "auth": {
+    "phoneLabel": "شماره موبایل",
+    "phonePlaceholder": "۰۹۱۲۳۴۵۶۷۸۹",
+    "sendCode": "ارسال کد",
+    "codeLabel": "کد تأیید",
+    "verify": "تأیید و ورود",
+    "resendIn": "ارسال مجدد تا {sec} ثانیه دیگر",
+    "resend": "ارسال مجدد کد",
+    "wrongCode": "کد وارد شده صحیح نیست",
+    "tooManyAttempts": "تعداد تلاش بیش از حد مجاز است",
+    "rateLimited": "درخواست بیش از حد؛ کمی بعد تلاش کنید",
+    "loginTitle": "ورود / ثبت‌نام",
+    "loginHint": "با شماره موبایل وارد شوید؛ کد یکبار مصرف برایتان پیامک می‌شود."
+  },
+  "profile": {
+    "title": "تکمیل پروفایل",
+    "displayName": "نام نمایشی",
+    "email": "ایمیل (اختیاری)",
+    "birthday": "تاریخ تولد",
+    "birthYear": "سال (اختیاری)",
+    "month": "ماه",
+    "day": "روز",
+    "save": "ذخیره",
+    "saved": "ذخیره شد"
+  },
+  "home": {
+    "greeting": "سلام {name}!",
+    "inviteTitle": "لینک دعوت شما",
+    "inviteHint": "این لینک را برای دوستانتان بفرستید تا به شما درخواست دوستی بدهند.",
+    "copy": "کپی لینک",
+    "copied": "کپی شد",
+    "regenerate": "ساخت لینک جدید",
+    "pendingRequests": "{count} درخواست دوستی در انتظار"
+  },
+  "friends": {
+    "title": "دوستان",
+    "empty": "هنوز دوستی اضافه نکرده‌اید.",
+    "requests": "درخواست‌های دوستی",
+    "noRequests": "درخواستی وجود ندارد.",
+    "accept": "پذیرفتن",
+    "decline": "رد کردن",
+    "unfriend": "حذف دوستی",
+    "viewWishlist": "دیدن ویش‌لیست",
+    "birthday": "تولد: {date}"
+  },
+  "wishlist": {
+    "mineTitle": "ویش‌لیست من",
+    "friendTitle": "ویش‌لیست {name}",
+    "empty": "لیست خالی است.",
+    "add": "افزودن مورد",
+    "itemTitle": "عنوان",
+    "itemDesc": "توضیح",
+    "itemUrl": "لینک",
+    "itemImage": "آدرس تصویر",
+    "itemPrice": "قیمت تقریبی",
+    "save": "ذخیره",
+    "delete": "حذف",
+    "claimed": "قبلاً انتخاب شده",
+    "claimedByMe": "شما انتخاب کرده‌اید",
+    "claim": "من می‌خرم",
+    "unclaim": "انصراف",
+    "claimTaken": "این مورد به‌تازگی توسط شخص دیگری انتخاب شد"
+  },
+  "notifications": {
+    "title": "اعلان‌ها",
+    "empty": "اعلانی ندارید.",
+    "markRead": "خوانده شد",
+    "types": {
+      "friend_request": "درخواست دوستی جدید",
+      "friend_accepted": "دوستی تأیید شد",
+      "birthday": "یادآوری تولد"
+    }
+  },
+  "settings": {
+    "title": "تنظیمات",
+    "notifChannels": "کانال‌های اعلان",
+    "webPush": "اعلان مرورگر (Web Push)",
+    "email": "اعلان ایمیلی",
+    "enablePush": "فعال‌سازی اعلان مرورگر",
+    "pushUnsupported": "مرورگر شما از Web Push پشتیبانی نمی‌کند",
+    "language": "زبان",
+    "timezone": "منطقه زمانی"
+  },
+  "invite": {
+    "title": "دعوت به دوستی",
+    "from": "{name} شما را به دوستی دعوت کرده است.",
+    "accept": "قبول درخواست دوستی",
+    "loginFirst": "برای پذیرش دعوت ابتدا وارد شوید.",
+    "sent": "درخواست دوستی ارسال شد.",
+    "alreadyFriends": "شما از قبل دوست هستید."
+  },
+  "common": { "loading": "در حال بارگذاری…", "retry": "تلاش دوباره", "cancel": "انصراف", "error": "خطایی رخ داد" }
+}

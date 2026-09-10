@@ -1,0 +1,96 @@
+{
+  "app": { "name": "Friendship" },
+  "nav": { "home": "Home", "friends": "Friends", "wishlist": "Wishlist", "notifications": "Notifications", "settings": "Settings", "logout": "Log out" },
+  "auth": {
+    "phoneLabel": "Mobile number",
+    "phonePlaceholder": "09123456789",
+    "sendCode": "Send code",
+    "codeLabel": "Verification code",
+    "verify": "Verify & sign in",
+    "resendIn": "Resend in {sec}s",
+    "resend": "Resend code",
+    "wrongCode": "That code is incorrect",
+    "tooManyAttempts": "Too many attempts",
+    "rateLimited": "Too many requests; try again later",
+    "loginTitle": "Sign in / Sign up",
+    "loginHint": "Sign in with your phone number; we'll text you a one-time code."
+  },
+  "profile": {
+    "title": "Complete your profile",
+    "displayName": "Display name",
+    "email": "Email (optional)",
+    "birthday": "Birthday",
+    "birthYear": "Year (optional)",
+    "month": "Month",
+    "day": "Day",
+    "save": "Save",
+    "saved": "Saved"
+  },
+  "home": {
+    "greeting": "Hi {name}!",
+    "inviteTitle": "Your invite link",
+    "inviteHint": "Send this link to friends so they can request to connect.",
+    "copy": "Copy link",
+    "copied": "Copied",
+    "regenerate": "New link",
+    "pendingRequests": "{count} pending friend request(s)"
+  },
+  "friends": {
+    "title": "Friends",
+    "empty": "No friends yet.",
+    "requests": "Friend requests",
+    "noRequests": "No requests.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "unfriend": "Remove",
+    "viewWishlist": "View wishlist",
+    "birthday": "Birthday: {date}"
+  },
+  "wishlist": {
+    "mineTitle": "My wishlist",
+    "friendTitle": "{name}'s wishlist",
+    "empty": "Nothing here yet.",
+    "add": "Add item",
+    "itemTitle": "Title",
+    "itemDesc": "Description",
+    "itemUrl": "Link",
+    "itemImage": "Image URL",
+    "itemPrice": "Approx. price",
+    "save": "Save",
+    "delete": "Delete",
+    "claimed": "Already reserved",
+    "claimedByMe": "Reserved by you",
+    "claim": "I'll get this",
+    "unclaim": "Release",
+    "claimTaken": "Someone else just reserved this"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications.",
+    "markRead": "Mark read",
+    "types": {
+      "friend_request": "New friend request",
+      "friend_accepted": "Friend request accepted",
+      "birthday": "Birthday reminder"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "notifChannels": "Notification channels",
+    "webPush": "Browser notifications (Web Push)",
+    "email": "Email notifications",
+    "enablePush": "Enable browser notifications",
+    "pushUnsupported": "Your browser doesn't support Web Push",
+    "language": "Language",
+    "timezone": "Timezone"
+  },
+  "invite": {
+    "title": "Friend invitation",
+    "from": "{name} invited you to connect.",
+    "accept": "Accept friend request",
+    "loginFirst": "Sign in first to accept the invitation.",
+    "sent": "Friend request sent.",
+    "alreadyFriends": "You are already friends."
+  },
+  "common": { "loading": "Loading…", "retry": "Retry", "cancel": "Cancel", "error": "Something went wrong" }
+}

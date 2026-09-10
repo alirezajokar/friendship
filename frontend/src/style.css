@@ -1,0 +1,49 @@
+:root {
+  --page-max: 640px;
+  font-family: 'Vazirmatn', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--p-content-background, #f4f4f5);
+  color: var(--p-text-color, #18181b);
+}
+
+#app {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 0 5rem;
+  min-height: 100vh;
+}
+
+.page {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-list { display: flex; flex-direction: column; gap: .75rem; }
+
+.muted { color: var(--p-text-muted-color, #71717a); font-size: .9rem; }
+
+.row { display: flex; align-items: center; gap: .5rem; }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.grow { flex: 1; }
+
+.center-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.field { display: flex; flex-direction: column; gap: .35rem; }
+.field label { font-size: .85rem; font-weight: 600; }
+
+.claimed { opacity: .6; }
