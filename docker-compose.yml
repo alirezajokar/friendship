@@ -1,4 +1,20 @@
-# Dev stack. `docker compose up --build`
+# Dev stack.  Quick start:
+#   cp .env.example .env         # optional — sane defaults are baked in below
+#   docker compose up --build    # db + migrate + api + worker + web
+# API  -> http://localhost:8000  (docs at /docs)
+# Web  -> http://localhost:5173
+# OTP codes are printed in the api logs:  docker compose logs -f api | grep SMS
+
+x-backend: &backend
+  build: ./backend
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-friendship}:${POSTGRES_PASSWORD:-friendship}@db:5432/${POSTGRES_DB:-friendship}
+  volumes:
+    - ./backend:/app
+
 services:
   db:
     image: postgres:16-alpine
@@ -16,31 +32,34 @@ services:
       timeout: 3s
       retries: 10
 
+  # One-shot: brings the schema up to date, then exits. api/worker wait for it.
+  migrate:
+    <<: *backend
+    command: alembic upgrade head
+    restart: "no"
+    depends_on:
+      db:
+        condition: service_healthy
+
   api:
-    build: ./backend
+    <<: *backend
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-    env_file: .env
-    environment:
-      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-friendship}:${POSTGRES_PASSWORD:-friendship}@db:5432/${POSTGRES_DB:-friendship}
-    volumes:
-      - ./backend:/app
     ports:
       - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
 
   worker:
-    build: ./backend
+    <<: *backend
     command: python -m app.worker
-    env_file: .env
-    environment:
-      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-friendship}:${POSTGRES_PASSWORD:-friendship}@db:5432/${POSTGRES_DB:-friendship}
-    volumes:
-      - ./backend:/app
     depends_on:
       db:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
 
   web:
     build:

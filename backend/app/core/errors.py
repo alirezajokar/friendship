@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+import logging
+
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
+
+log = logging.getLogger("api")
 
 
 class AppError(Exception):
@@ -32,3 +36,9 @@ def install_error_handlers(app: FastAPI) -> None:
             status_code=422,
             content={"detail": "invalid_request", "errors": exc.errors()},
         )
+
+    @app.exception_handler(Exception)
+    async def _unhandled(request: Request, exc: Exception) -> JSONResponse:
+        # Common cause in a fresh setup: DB tables missing -> run `alembic upgrade head`.
+        log.exception("unhandled error on %s %s", request.method, request.url.path)
+        return JSONResponse(status_code=500, content={"detail": "internal_error"})

@@ -11,18 +11,40 @@
 
 ## اجرا با Docker (پیشنهادی)
 
+فقط همین یک دستور — بدون هیچ تنظیم اولیه‌ای:
+
 ```bash
-cp .env.example .env            # مقادیر پیش‌فرض برای توسعه کافی‌ست
-docker compose up --build       # db + api + worker + web
-docker compose exec api alembic upgrade head
+docker compose up --build
 ```
 
-- API: <http://localhost:8000> (مستندات: `/docs`)
+سرویس `migrate` قبل از `api`/`worker` به‌صورت خودکار `alembic upgrade head` را
+اجرا می‌کند، پس نیازی به مهاجرت دستی نیست. فایل `.env` هم اختیاری است (مقادیر
+پیش‌فرض توسعه در `docker-compose.yml` جاسازی شده‌اند)؛ برای سفارشی‌سازی:
+`cp .env.example .env`.
+
+- API: <http://localhost:8000> (مستندات تعاملی: `/docs`)
 - وب: <http://localhost:5173>
-- کد OTP در حالت توسعه در لاگ سرویس `api` چاپ می‌شود:
+- **کد ورود (OTP)** در حالت توسعه پیامک نمی‌شود؛ در لاگ سرویس `api` چاپ می‌شود:
   ```bash
   docker compose logs -f api | grep SMS
+  # خروجی نمونه:  SMS -> +989121234567 | کد ورود شما به اپ دوستی: 944481
   ```
+
+### توقف و پاک‌سازی
+
+```bash
+docker compose down           # توقف
+docker compose down -v        # توقف + حذف دیتابیس (شروع تمیز)
+```
+
+### اگر خطای ۵۰۰ گرفتید
+
+- **`relation ... does not exist`**: مهاجرت اجرا نشده. با نسخهٔ فعلی نباید رخ دهد؛
+  اگر از تصویر قدیمی‌تر استفاده می‌کنید: `docker compose run --rm migrate` یا
+  `docker compose exec api alembic upgrade head`.
+- **خطای اتصال به دیتابیس**: چند ثانیه صبر کنید (کانتینر `db` هنوز healthy نشده) یا
+  `docker compose restart api`.
+- جزئیات خطا همیشه در `docker compose logs api` است.
 
 ### محیط production
 
