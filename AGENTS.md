@@ -59,10 +59,3 @@ CI (`.github/workflows/ci.yml`) runs exactly those four backend/frontend checks 
 - Secrets only via env (`.env`, never committed — see `.env.example` for the
   full list). OTP codes are only ever visible in the `console` SMS
   provider's logs in dev; never a real send target.
-
-## Known anti-patterns
-
-- Putting a visibility/permission rule in an `app/api/*.py` router instead of
-  the matching service — it belongs in the service layer, always.
-- Computing a birthday occurrence from a stored Gregorian date instead of
-  re-resolving from the Jalali components for the target Jalali year.
