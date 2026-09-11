@@ -1,5 +1,7 @@
 # اپ دوستی (Friendship)
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 وب‌اپ دوستی (PWA): ورود با شماره موبایل، لینک دعوت، ویش‌لیست هدیه با قابلیت
 «رزرو» بدون لو رفتن سورپرایز، و یادآور چندمرحله‌ای تولد دوستان.
 
@@ -143,3 +145,10 @@ docker-compose.yml / docker-compose.prod.yml
 ```
 
 جزئیات رفتار در `openspec/specs/` و طرح اولیه در `openspec/project.md`.
+
+---
+
+## لایسنس
+
+[MIT](LICENSE) — استفاده، تغییر و توزیع آزاد است، حتی به‌صورت تجاری/closed-source؛
+کافی‌ست اعلامیهٔ کپی‌رایت حفظ شود. نرم‌افزار «همان‌طور که هست» و بدون ضمانت ارائه می‌شود.

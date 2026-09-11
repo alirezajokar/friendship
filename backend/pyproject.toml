@@ -3,6 +3,7 @@ name = "friendship-backend"
 version = "0.1.0"
 description = "Friendship app API — FastAPI backend"
 requires-python = ">=3.12"
+license = "MIT"  # full text at repository root: ../LICENSE
 dependencies = [
     "fastapi>=0.115",
     "uvicorn[standard]>=0.32",
